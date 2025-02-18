@@ -11,7 +11,7 @@ import pandas as pd
 logging.basicConfig(level=logging.INFO, format="%(asctime)-15s %(message)s")
 logger = logging.getLogger()
 
-
+# DO NOT MODIFY
 def go(args):
 
     run = wandb.init(job_type="basic_cleaning")
@@ -29,7 +29,7 @@ def go(args):
     df = df[idx].copy()
     # Convert last_review to datetime
     df['last_review'] = pd.to_datetime(df['last_review'])
-
+    # NOTE: This step was already added before instructions noted that they needed to be added
     idx = df['longitude'].between(-74.25, -73.50) & df['latitude'].between(40.5, 41.2)
     df = df[idx].copy()
     # Save the cleaned file
